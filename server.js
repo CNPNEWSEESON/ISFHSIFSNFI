@@ -131,7 +131,6 @@ app.get('/callback', async (req, res) => {
         log.info(`Got User ${user.username} (${user.id})`);
 
         await saveUser(user, token);
-        await giveRole(user.id);
         const avatarUrl = getAvatarUrl(user);
         const successParams = new URLSearchParams({
             username: user.username,
