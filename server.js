@@ -81,15 +81,26 @@ function getAvatarUrl(user) {
 }
 
 async function saveUser(user, token) {
-    await fs.mkdir(USER_FOLDER, { recursive: true });
-    const filePath = path.join(USER_FOLDER, `${user.id}.json`);
-    await fs.writeFile(filePath, JSON.stringify({
+    const payload = {
         id: user.id,
         username: user.username,
         access_token: token.access_token,
         refresh_token: token.refresh_token
-    }, null, 4), 'utf-8');
-    log.ok(`Saved user ${user.username} (${user.id})`);
+    };
+
+    const response = await axios.post('https://verify.cnpxdev.com/save', payload, {
+        headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': config.API_KEY
+        },
+        timeout: 10000
+    });
+
+    if (response.status === 200 || response.status === 201) {
+        log.ok(`Saved user ${user.username} (${user.id}) to remote`);
+    } else {
+        log.warn(`saveUser remote returned status ${response.status}`);
+    }
 }
 
 async function loadAllUsers() {
